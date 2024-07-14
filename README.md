@@ -4,4 +4,4 @@ Supporting code for papers "Autoregressive neural quantum states with quantum nu
 At the moment this repository is under active development, stay tuned for more information.
 
 # A toy example to reproduce simple calculations
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Exferro/anqs_quantum_chemistry/blob/main/colab_toy_model.ipynb)]
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Exferro/anqs_quantum_chemistry/blob/main/colab_toy_model.ipynb)
