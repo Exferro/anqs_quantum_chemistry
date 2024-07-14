@@ -20,6 +20,6 @@ openfermion
 openfermionpyscf
 openfermionpsi4
 
-cupy-cuda11x
+cupy-cuda12x
 
 
