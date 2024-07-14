@@ -13,6 +13,7 @@ scipy
 matplotlib
 ipywidgets
 tqdm
+ipympl
 
 pennylane
 
