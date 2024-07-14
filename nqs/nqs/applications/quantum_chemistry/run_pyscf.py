@@ -229,7 +229,7 @@ def run_pyscf(molecule,
     mycc = pyscf.ci.CISD(mf).run()
     mycc_cc = pyscf.cc.CCSD(mf).run()
     mycc_cc.e_tot + mycc_cc.ccsd_t()
-    print('HUI')
+    #print('HUI')
 
     pyscf_scf = pyscf.scf.HF(pyscf_molecule).run()
 
