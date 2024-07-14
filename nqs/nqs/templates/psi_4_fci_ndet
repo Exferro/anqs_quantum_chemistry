@@ -1,0 +1,36 @@
+import numpy as np
+
+# Set molecule to dimer
+molecule mol {
+{{geo_string}}
+{{symmetry_level}}
+}
+
+mol.set_multiplicity({{mol_config.multiplicity}})
+mol.set_molecular_charge({{mol_config.charge}})
+
+{% if mol_config.multiplicity == 1 %}
+set reference rhf
+set guess sad
+{% else %}
+set reference rohf
+set guess gwh
+{% endif %}
+
+set basis       {{ mol_config.basis }}
+set opdm        True
+set PRINT_MOS   True
+set PRINT_BASIS True
+set wfn         detci
+set fci         True
+set scf_type    out_of_core
+
+scf_e, scf_wfn = energy('SCF', return_wfn=True)
+
+set qc_module detci
+psi4.prepare_options_for_module("DETCI")
+ciwfn = CIWavefunction(scf_wfn)
+ciwfn.transform_ci_integrals()
+
+with open('{{dump_filename}}', 'w') as f:
+    f.write(str(ciwfn.ndet()))
