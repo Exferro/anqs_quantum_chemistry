@@ -3,7 +3,7 @@ Supporting code for the papers "Autoregressive neural quantum states with quantu
 
 At the moment this repository is under the active development, stay tuned for more information.
 
-So far the safest (and almost the only) option to run the code is to run the dedicated ``colab_toy_example.ipynb`` on Google Colab (see the link below).
+So far the safest (and almost the only) option to run the code is to run the dedicated ``colab_toy_model.ipynb`` on Google Colab (see the link below).
 Running the code on a user machine requires installation of CUDA-related packages and we will provide a detailed instruction soon.
 
 # A toy example to reproduce simple calculations
