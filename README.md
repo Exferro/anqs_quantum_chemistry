@@ -1,7 +1,7 @@
 # Autoregressive neural quantum states for quantum chemistry 
-Supporting code for papers "Autoregressive neural quantum states with quantum number symmetries" and "Neural quantum states and peaked molecular wave functions: curse or blessing?"
+Supporting code for the papers "Autoregressive neural quantum states with quantum number symmetries" and "Neural quantum states and peaked molecular wave functions: curse or blessing?".
 
-At the moment this repository is under active development, stay tuned for more information.
+At the moment this repository is under the active development, stay tuned for more information.
 
 So far the safest (and almost the only) option to run the code is to run the dedicated ``colab_toy_example.ipynb`` on Google Colab (see the link below).
 Running the code on a user machine requires installation of CUDA-related packages and we will provide a detailed instruction soon.
