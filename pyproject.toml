@@ -4,7 +4,6 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "anqs"
-version = "0.1.0"
 description = "A PyTorch implementation of autoregressive neural quantum states applied to quantum chemistry"
 authors = [{ name = "Oleksii Malyshev", email = "aleksei.o.malyshev@gmail.com" }]
 license = { text = "MIT" }
