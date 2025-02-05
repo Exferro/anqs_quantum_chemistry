@@ -17,10 +17,9 @@ from openfermion.transforms import jordan_wigner
 from openfermion.chem import MolecularData as Psi4MolecularData
 from openfermionpsi4 import run_psi4
 
-from pennylane.pauli import PauliSentence, PauliWord, pauli_sentence, simplify
+from pennylane.pauli import PauliSentence, PauliWord
 from pennylane.pauli.utils import _binary_matrix_from_pws
 from pennylane.qchem.tapering import _reduced_row_echelon, _kernel
-from pennylane.operation import active_new_opmath
 
 from ...infrastructure import create_dir
 from ...infrastructure.nested_data import Config
@@ -228,7 +227,7 @@ class Molecule:
                 tau[idx] = pauli_map[f"{x}{z}"]
 
             ham = qml.pauli.PauliSentence({qml.pauli.PauliWord(tau): 1.0})
-            ham = ham.operation(wires) if active_new_opmath() else ham.hamiltonian(wires)
+            ham = ham.operation(wires) 
             generators.append(ham)
 
         return generators
