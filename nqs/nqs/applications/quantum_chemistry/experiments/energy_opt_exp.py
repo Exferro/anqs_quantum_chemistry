@@ -283,16 +283,13 @@ class EnergyOptExpConfig(Config):
         assert series_name is not None
         self.series_name = series_name
 
-        if device not in self.ALLOWED_DEVICES:
-            raise ValueError(f'Wrong device was provided: {device}. The allowed devices are {self.ALLOWED_DEVICES}')
+        self._device = None
         self.device = device
         self.rng_seed = rng_seed
 
         self.perm_type = perm_type
-        if popcount_mode not in self.ALLOWED_POPCOUNT_MODES:
-            raise ValueError(f'Wrong popcount mode was provided: {popcount_mode}. The allowed popcount modes are {self.ALLOWED_POPCOUNT_MODES}')
-        if (self.device == 'cpu') and (popcount_mode == 'custom'):
-            raise NotImplementedError(f'Device "{self.device}" does not support custom popcount mode yet; please choose either "memory_efficient" or "compute_efficient".')
+
+        self._popcount_mode = None
         self.popcount_mode = popcount_mode
 
         self.masker_config = masker_config if masker_config is not None else MaskerConfig()
@@ -312,6 +309,29 @@ class EnergyOptExpConfig(Config):
         self.proc_grad_schedule = proc_grad_schedule if proc_grad_schedule is not None else Schedule(schedule=((0, ProcessGradConfig()),))
 
         super().__init__(*args, **kwargs)
+
+    @property
+    def device(self):
+        return self._device
+    
+    @device.setter
+    def device(self, value):        
+        if value not in self.ALLOWED_DEVICES:
+            raise ValueError(f'Wrong device was provided: {value}. The allowed devices are {self.ALLOWED_DEVICES}')
+        self._device = value
+
+    @property
+    def popcount_mode(self):
+        return self._popcount_mode
+    
+    @popcount_mode.setter
+    def popcount_mode(self, value):
+        if value not in self.ALLOWED_POPCOUNT_MODES:
+            raise ValueError(f'Wrong popcount mode was provided: {value}. The allowed popcount modes are {self.ALLOWED_POPCOUNT_MODES}')        
+        
+        if (self.device == 'cpu') and (value == 'custom'):
+            raise NotImplementedError(f'Device "{self.device}" does not support custom popcount mode yet; please choose either "memory_efficient" or "compute_efficient".')
+        self._popcount_mode = value
 
 
 class EnergyOptExp:
