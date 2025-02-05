@@ -219,6 +219,10 @@ class IterResult(Config):
 
 
 class EnergyOptExpConfig(Config):
+    ALLOWED_DEVICES = (
+        'cpu',
+        'gpu'
+    )
     ALLOWED_LOSS_TYPES = (
         'full_e_loc',
         'sample_aware_e_loc',
@@ -279,11 +283,16 @@ class EnergyOptExpConfig(Config):
         assert series_name is not None
         self.series_name = series_name
 
+        if device not in self.ALLOWED_DEVICES:
+            raise ValueError(f'Wrong device was provided: {device}. The allowed devices are {self.ALLOWED_DEVICES}')
         self.device = device
         self.rng_seed = rng_seed
 
         self.perm_type = perm_type
-        assert popcount_mode in self.ALLOWED_POPCOUNT_MODES
+        if popcount_mode not in self.ALLOWED_POPCOUNT_MODES:
+            raise ValueError(f'Wrong popcount mode was provided: {popcount_mode}. The allowed popcount modes are {self.ALLOWED_POPCOUNT_MODES}')
+        if (self.device == 'cpu') and (popcount_mode == 'custom'):
+            raise NotImplementedError(f'Device "{self.device}" does not support custom popcount mode yet; please choose either "memory_efficient" or "compute_efficient".')
         self.popcount_mode = popcount_mode
 
         self.masker_config = masker_config if masker_config is not None else MaskerConfig()
