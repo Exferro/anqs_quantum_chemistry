@@ -56,4 +56,3 @@ commit = true
 tag = true
 push = false  # Keep `false` if you want to manually push tags
 
-files = ["pyproject.toml", "anqs/__init__.py"]
