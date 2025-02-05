@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "anqs"
+version = "0.1.0"
+description = "A PyTorch implementation of autoregressive neural quantum states applied to quantum chemistry"
+authors = [{ name = "Oleksii Malyshev", email = "aleksei.o.malyshev@gmail.com" }]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.10"
+
+dependencies = [
+    "torch",
+    "torchvision",
+    "torchaudio",
+    "pandas",
+    "scipy",
+    "matplotlib",
+    "ipywidgets",
+    "tqdm",
+    "ipympl",
+    "pennylane",
+    "openfermion",
+    "openfermionpyscf",
+    "openfermionpsi4",
+    "cupy-cuda11x"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "mypy",
+    "flake8"
+]
+
+[tool.setuptools]
+packages = ["anqs"]
+
+[tool.setuptools.package-data]
+anqs = ["*.json", "*.csv"]
+
+[tool.pip]
+extra-index-url = ["https://download.pytorch.org/whl/cu118"]
+
+[tool.bumpver]
+current_version = "0.1.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "bump version {old_version} -> {new_version}"
+tag_message = "{new_version}"
+tag_scope = "default"
+pre_commit_hook = ""
+post_commit_hook = ""
+commit = true
+tag = true
+push = false  # Keep `false` if you want to manually push tags
+
