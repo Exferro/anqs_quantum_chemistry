@@ -3,8 +3,13 @@ import numpy as np
 
 from .constants import BASE_INT_TYPE, BASE_REAL_TYPE, BASE_COMPLEX_TYPE
 from ..utils.popcount import popcount
-from ..utils.custom_popcount import cuda_int64_popcount, cuda_int64_popcount_
 
+try:
+    from ..utils.custom_popcount import cuda_int64_popcount, cuda_int64_popcount_
+except ImportError:
+    CUSTOM_POPCOUNT_AVAILABLE = False
+else:
+    CUSTOM_POPCOUNT_AVAILABLE = True
 
 class HilbertSpace:
     SUPPORTED_IDX_DTYPES = (pt.int32, pt.int64)
@@ -104,6 +109,12 @@ class HilbertSpace:
             self.inv_perm = pt.arange(self.qubit_num - 1, -1, -1, dtype=self.idx_dtype, device=self.device)
 
         assert popcount_mode in self.ALLOWED_POPCOUNT_MODES
+        if popcount_mode == 'custom' and not CUSTOM_POPCOUNT_AVAILABLE:
+            raise ImportError('Custom popcount is not available; it seems that you might have problems with CuPy installation for your CUDA version.'
+                              'The possible solutions: '
+                              'a) reinstall all packages from requirements.txt in an empty environment; '
+                              'b) use either "memory_efficient" or "compute_efficient" popcount mode; '
+                              'c) contact the developer (Exferro).')     
         self.popcount_mode = popcount_mode
         if self.popcount_mode == 'compute_efficient':
             self.popcounts32 = []
