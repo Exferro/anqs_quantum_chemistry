@@ -7,4 +7,4 @@ So far the safest (and almost the only) option to run the code is to run the ded
 Running the code on a user machine requires installation of CUDA-related packages and we will provide a detailed instruction soon.
 
 # A toy example to reproduce simple calculations
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Exferro/anqs_quantum_chemistry/blob/main/colab_toy_model.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Exferro/anqs_quantum_chemistry_private/blob/dev/colab_toy_model.ipynb)
