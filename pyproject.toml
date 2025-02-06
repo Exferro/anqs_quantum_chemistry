@@ -65,6 +65,6 @@ push = false  # Keep `false` if you want to manually push tags
 
 [tool.bumpver.file_patterns]
 "pyproject.toml" = [
-    'version = "{version}"',
-    'current_version = "{version}"'
+    '^version = "{version}"',
+    '^current_version = "{version}"'
 ]
