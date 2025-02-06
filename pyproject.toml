@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "anqs"
-version = "0.1.4"
+version = "0.1.5"
 description = "A PyTorch implementation of autoregressive neural quantum states applied to quantum chemistry"
 authors = [{ name = "Oleksii Malyshev", email = "aleksei.o.malyshev@gmail.com" }]
 license = { text = "MIT" }
@@ -52,7 +52,7 @@ include = ["anqs*"]
 anqs = ["*.json", "*.csv"]
 
 [tool.bumpver]
-current_version = "0.1.4"
+current_version = "0.1.5"
 version_pattern = "MAJOR.MINOR.PATCH"
 commit_message = "bump version {old_version} -> {new_version}"
 tag_message = "{new_version}"
