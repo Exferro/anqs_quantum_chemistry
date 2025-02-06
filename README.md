@@ -1,5 +1,5 @@
 # Autoregressive neural quantum states for quantum chemistry 
-Supporting code for the papers "Autoregressive neural quantum states with quantum number symmetries" and "Neural quantum states and peaked molecular wave functions: curse or blessing?".
+Supporting code for the papers ["Autoregressive neural quantum states with quantum number symmetries"](https://arxiv.org/abs/2310.04166) and ["Neural quantum states and peaked molecular wave functions: curse or blessing?"](https://arxiv.org/abs/2408.07625).
 
 At the moment this repository is under the active development, stay tuned for more information.
 
