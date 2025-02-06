@@ -24,10 +24,18 @@ dependencies = [
     "openfermion",
     "openfermionpyscf",
     "openfermionpsi4",
-    "cupy-cuda11x"
 ]
 
 [project.optional-dependencies]
+
+cuda11 = [
+    "cupy-cuda11x"
+]
+
+cuda12 = [
+    "cupy-cuda12x"
+]
+
 dev = [
     "pytest",
     "black",
