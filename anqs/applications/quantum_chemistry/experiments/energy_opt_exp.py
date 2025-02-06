@@ -752,12 +752,12 @@ class EnergyOptExp:
             self.chem_acc_time = cur_time
 
         postfix = {
-            '<E>': iter_result.eval_loss_metrics.full_energy.cpu().numpy() if self.config.loss_type == 'full_e_loc' else iter_result.eval_loss_metrics.full_energy,
-            'SA <E>': f'{iter_result.eval_loss_metrics.sample_aware_energy}',
+            'Full <E>': iter_result.eval_loss_metrics.full_energy.cpu().numpy() if self.config.loss_type == 'full_e_loc' else iter_result.eval_loss_metrics.full_energy,
+            'Variational <E>': f'{iter_result.eval_loss_metrics.sample_aware_energy}',
             'N_unq': iter_result.sampling_metrics.unq_num,
-            'Act. N_unq': self.actual_unq_num,
-            'Rep. num': self.repetition_num,
-            'Next N_s': self.next_rep_sample_num,
+            # 'Act. N_unq': self.actual_unq_num,
+            # 'Rep. num': self.repetition_num,
+            # 'Next N_s': self.next_rep_sample_num,
             'min <E>': f'{self.min_energy} in {self.min_energy_time}s ({self.min_energy_iter} iter)',
             'Chem. Acc.': f'in {self.chem_acc_time}s ({self.chem_acc_iter} iter)',
         }
