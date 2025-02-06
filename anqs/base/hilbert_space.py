@@ -6,7 +6,7 @@ from ..utils.popcount import popcount
 
 try:
     from ..utils.custom_popcount import cuda_int64_popcount, cuda_int64_popcount_
-except ImportError:
+except (ImportError, AssertionError):
     CUSTOM_POPCOUNT_AVAILABLE = False
 else:
     CUSTOM_POPCOUNT_AVAILABLE = True

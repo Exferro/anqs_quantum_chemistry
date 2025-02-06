@@ -9,6 +9,7 @@ authors = [{ name = "Oleksii Malyshev", email = "aleksei.o.malyshev@gmail.com" }
 license = { text = "MIT" }
 readme = "README.md"
 requires-python = ">=3.10"
+dynamic = ["version"]
 
 dependencies = [
     "torch",

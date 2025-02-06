@@ -318,6 +318,8 @@ class EnergyOptExpConfig(Config):
     def device(self, value):        
         if value not in self.ALLOWED_DEVICES:
             raise ValueError(f'Wrong device was provided: {value}. The allowed devices are {self.ALLOWED_DEVICES}')
+        if not pt.cuda.is_available() and value == 'gpu':
+            raise RuntimeError(f'CUDA is not available, but the device "{value}" was requested. Either install CUDA version of this package or choose "cpu" device.')
         self._device = value
 
     @property
