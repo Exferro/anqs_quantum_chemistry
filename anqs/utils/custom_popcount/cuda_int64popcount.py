@@ -2,7 +2,12 @@ import torch as pt
 try:
     import cupy
 except ImportError:
-    print("CUPY cannot initialize, not using CUDA kernels")
+    raise ImportError("CUPY cannot initialize, not using CUDA kernels."
+                      "custom popcount is not available")
+
+if not pt.cuda.is_available():
+    raise ImportError("CUDA is not available, not using CUDA kernels;"
+                      "custom popcount is not available")
 
 
 class CUDAStream:
