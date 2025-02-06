@@ -44,10 +44,6 @@ dev = [
     "flake8"
 ]
 
-[tool.setuptools]
-packages = ["anqs"]
-include-package-data = true
-
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["anqs*"]
@@ -72,5 +68,6 @@ push = false  # Keep `false` if you want to manually push tags
     'version = "{version}"',
     'current_version = "{version}"'
 ]
-"anqs/__init__.py" = ['__version__ = "{version}"']
-
+"anqs/__init__.py" = [
+    '__version__ = "{version}"'
+]
