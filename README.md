@@ -3,8 +3,25 @@ Supporting code for the papers "Autoregressive neural quantum states with quantu
 
 At the moment this repository is under the active development, stay tuned for more information.
 
-So far the safest (and almost the only) option to run the code is to run the dedicated ``colab_toy_model.ipynb`` on Google Colab (see the link below).
-Running the code on a user machine requires installation of CUDA-related packages and we will provide a detailed instruction soon.
-
-# A toy example to reproduce simple calculations
+# Quick start
+The dedicated Google Colab (see the link below) provides a toy example of some simple calculations for a Li2O molecule with 30 qubits. 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Exferro/anqs_quantum_chemistry/blob/main/colab_toy_model.ipynb)
+
+# Installation
+Depending on whether you have CUDA installed or not, as well as depending on the CUDA version we offer three possible installation pathways. 
+All pathways suppose downloading the code contained in this repository and running the following commands **after** changing the working directory to the directory of this repository (e.g. being inside the `anqs_quantum_chemistry directory`)
+
+## CPU version
+```
+pip3 install --extra-index-url https://download.pytorch.org/whl/cpu . anqs
+```
+
+## CUDA 11 version
+```
+pip3 install --extra-index-url https://download.pytorch.org/whl/cu118 . anqs[cuda11]
+```
+
+## CUDA 12 version
+```
+pip3 install . anqs[cuda12]
+```
