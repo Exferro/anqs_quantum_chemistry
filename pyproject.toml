@@ -7,7 +7,7 @@ name = "anqs"
 version = "0.1.5"
 description = "A PyTorch implementation of autoregressive neural quantum states applied to quantum chemistry"
 authors = [{ name = "Oleksii Malyshev", email = "aleksei.o.malyshev@gmail.com" }]
-license = { text = "MIT" }
+license = { text = "Apache-2.0" }
 readme = "README.md"
 requires-python = ">=3.10"
 
